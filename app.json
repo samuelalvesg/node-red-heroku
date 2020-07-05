@@ -1,0 +1,20 @@
+{
+  "name": "Node-RED",
+  "description": "A visual tool for wiring the Internet of Things.",
+  "keywords": [ "Node-RED", "IoT", "Internet of Things", "node.js", "node" ],
+  "website": "http://nodered.org/",
+  "repository": "https://github.com/samuelalvesg/node-red-heroku.git",
+  "logo": "https://nodered.org/about/resources/media/node-red-icon-2.png",
+  "success_url": "/",
+  "env": {
+    "NODE_RED_PASSWORD": {
+      "description": "The password to secure the editor.",
+      "value": ""
+    },
+    "NODE_RED_USERNAME": {
+      "description": "The username to secure the editor.",
+      "value": ""
+    }
+  },
+  "addons": [ "mongolab" ]
+}

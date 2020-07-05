@@ -1,0 +1,28 @@
+{
+  "name": "node-red-heroku",
+  "version": "0.0.1",
+  "description": "Node-red Heroku",
+  "main": "index.js",
+  "scripts": {
+	"start": "node index.js",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelalvesg/node-red-heroku.git"
+  },
+  "keywords": [
+    "Sintese"
+  ],
+    "files": [
+    "index.js",
+    "LICENSE",
+    "README.md"
+    ],
+   "dependencies": {
+   "node-red":"1.1.0",
+   "node-red-mongo-storage-plugin":"0.1.2"
+   					},
+  "author": "Samuel Gonçalves",
+  "license": "MIT"
+}
