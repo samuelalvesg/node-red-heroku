@@ -61,15 +61,15 @@ var settings = {
      storageModule : require("node-red-mongo-storage-plugin"),
     storageModuleOptions: {        
         mongoUrl: process.env.MONGODB_URI,
-        database: process.env.MONGODB_DB
+        database: process.env.MONGODB_DB,
         //optional
         //set the collection name that the module would be using
-        //collectionNames:{
-        //    flows: "nodered-flows",
-        //   credentials: "nodered-credentials",
-        //    settings: "nodered-settings",
-        //    sessions: "nodered-sessions"
-        //}
+        collectionNames:{
+            flows: "nodered-flows",
+           credentials: "nodered-credentials",
+            settings: "nodered-settings",
+            sessions: "nodered-sessions"
+        }
     },      
     functionGlobalContext: { require:require }    // enables global context
 };
