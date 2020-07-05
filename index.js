@@ -66,11 +66,12 @@ var settings = {
         //set the collection name that the module would be using
         collectionNames:{
             flows: "nodered-flows",
-           credentials: "nodered-credentials",
+            credentials: "nodered-credentials",
             settings: "nodered-settings",
             sessions: "nodered-sessions"
         }
-    },      
+    },
+    credentialSecret: false,
     functionGlobalContext: { require:require }    // enables global context
 };
 
