@@ -10,7 +10,8 @@
 
     "MONGODB_DB": {
       "description": "database name (leave it blank)",
-      "value": ""
+      "value": "",
+      "required": false
     },
     "NODE_ADMIN_USER": {
       "description": "The username to secure the editor.",
