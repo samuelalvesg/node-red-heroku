@@ -23,8 +23,8 @@ var settings = {
     adminAuth: {
         type: "credentials",
         users: [{
-            username: process.env.NODE_ADMIN_USER,
-            password: process.env.NODE_ADMIN_PASSWORD,
+            username: (process.env.NODE_ADMIN_USER || "admin"),
+            password: (process.env.NODE_ADMIN_PASSWORD || "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN."),
             permissions: "*"
         }]
     },
@@ -57,23 +57,26 @@ var settings = {
             enabled: false
         }
     },
-
-     storageModule : require("node-red-mongo-storage-plugin"),
-    storageModuleOptions: {        
-        mongoUrl: process.env.MONGODB_URI,
-        database: process.env.MONGODB_DB,
-        //optional
-        //set the collection name that the module would be using
-        collectionNames:{
-            flows: "nodered-flows",
-            credentials: "nodered-credentials",
-            settings: "nodered-settings",
-            sessions: "nodered-sessions"
-        }
-    },
+    
     credentialSecret: false,
     functionGlobalContext: { require:require }    // enables global context
 };
+
+if(process.env.MONGODB_URI) {
+settings.storageModule = require("node-red-mongo-storage-plugin");
+settings.storageModuleOptions = {        
+    mongoUrl: process.env.MONGODB_URI,
+    database: process.env.MONGODB_DB,
+    //optional
+    //set the collection name that the module would be using
+    collectionNames:{
+        flows: "nodered-flows",
+        credentials: "nodered-credentials",
+        settings: "nodered-settings",
+        sessions: "nodered-sessions"
+    }
+}
+}
 
 // Initialise the runtime with a server and settings
 RED.init(server,settings);
