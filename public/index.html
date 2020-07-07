@@ -70,8 +70,8 @@
                 <p>By default, the editor is open for anyone to access and modify flows. To password-protect the editor:</p>
                 <p>Add the following user-defined variables.</p>
                 <ul>
-                  <li><code>NODE_RED_USERNAME</code> - the username to secure the editor with</li>
-                  <li><code>NODE_RED_PASSWORD</code> - the password to secure the editor with</li>
+                  <li><code>NODE_ADMIN_USERNAME</code> - the username to secure the editor with</li>
+                  <li><code>NODE_ADMIN_PASSWORD</code> - the password to secure the editor with</li>
                 </ul>
 
                 <h4>Adding new nodes to the palette</h4>
@@ -114,7 +114,7 @@ $(function() {
     $(".insecure").hide();
     $.ajax({
         dataType: "json",
-        url: "/red/settings",
+        url: "/admin/settings",
         success: function() {
             $(".insecure").show();
         },
