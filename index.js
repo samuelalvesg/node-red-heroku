@@ -1,4 +1,3 @@
-var path = require("path");
 var http = require('http');
 var express = require("express");
 var RED = require("node-red");
@@ -15,9 +14,6 @@ var server = http.createServer(app);
 
 // Create the settings object - see default settings.js file for other options
 var settings = {
-
-
-    ui: { path: "ui" },
     httpAdminRoot:"/admin",
     httpNodeRoot: "/api",
     adminAuth: {
@@ -63,19 +59,19 @@ var settings = {
 };
 
 if(process.env.MONGODB_URI) {
-settings.storageModule = require("node-red-mongo-storage-plugin");
-settings.storageModuleOptions = {        
-    mongoUrl: process.env.MONGODB_URI,
-    database: process.env.MONGODB_DB,
-    //optional
-    //set the collection name that the module would be using
-    collectionNames:{
-        flows: "nodered-flows",
-        credentials: "nodered-credentials",
-        settings: "nodered-settings",
-        sessions: "nodered-sessions"
+    settings.storageModule = require("node-red-mongo-storage-plugin");
+    settings.storageModuleOptions = {        
+        mongoUrl: process.env.MONGODB_URI,
+        database: process.env.MONGODB_DB,
+        //optional
+        //set the collection name that the module would be using
+        collectionNames:{
+            flows: "nodered-flows",
+            credentials: "nodered-credentials",
+            settings: "nodered-settings",
+            sessions: "nodered-sessions"
+        }
     }
-}
 }
 
 // Initialise the runtime with a server and settings
